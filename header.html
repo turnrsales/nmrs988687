@@ -1,0 +1,271 @@
+<header class="header-51" id="page-header">
+<div class="header-holder">
+<div class="container">
+<div class="row">
+<div class="col-xs-6 col-sm-3">
+<div class="logo">
+<a href="index.html">
+<img alt="Logo" class="default-logo site-logo-img" src="assets/images/header-33-logo.png?v=1794306007"/>
+<div class="generated-logo text-logo" style="display:none;"></div>
+</a>
+</div>
+</div>
+<div class="col-xs-6 col-sm-9 static-block">
+<nav class="navbar navbar-default justify-end" id="nav">
+<div class="navbar-header">
+<button aria-expanded="false" class="navbar-toggle collapsed" data-target="#dynamic-header" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
+<div class="collapse navbar-collapse" id="dynamic-header"><ul class="nav navbar-nav navbar-right main-navigation text-uppercase font-lato"><li><a href="index.html">Home</a></li><li><a href="About_Us.html">About Us</a></li><li><a href="Services.html">Services</a></li><li><a href="Blog.html">Blog</a></li><li><a href="Contact_Us.html">Contact Us</a></li></ul></div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</header>
+<section class="section-wrapper slider-51 header-51-section main-header-section" id="section-ypzcgyguxqs">
+<div class="carousel carousel-51">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img alt="Event Planning Banner 1" class="desktop-img" src="assets/images/header-51-slider-1.jpg?v=1794306007"/>
+<div class="carousel-caption">
+<h1>
+                        Unforgettable Events<br/>
+                        Perfectly Planned.
+                    </h1>
+<p>
+                        From Concept to Celebration — We Handle Everything
+                    </p>
+<div class="button-container">
+<a class="btn-teo-caption-48" href="#">
+<span>Plan Your Event</span>
+</a>
+</div>
+</div>
+</div>
+<div class="carousel-item">
+<img alt="Event Decor Banner" class="desktop-img" src="assets/images/header-51-slider-2.jpg?v=1794306007"/>
+<div class="carousel-caption">
+<h1>
+                        Elegant Designs &amp;<br/>
+                        Seamless Execution.
+                    </h1>
+<p>
+                        Weddings, Corporate Events &amp; Private Celebrations
+                    </p>
+<div class="button-container">
+<a class="btn-teo-caption-48" href="#">
+<span>View Services</span>
+</a>
+</div>
+</div>
+</div>
+<div class="carousel-item">
+<img alt="Event Management Banner" class="desktop-img" src="assets/images/header-51-slider-3.jpg?v=1794306007"/>
+<div class="carousel-caption">
+<h1>
+                        Moments That Turn<br/>
+                        Into Memories.
+                    </h1>
+<p>
+                        Trusted Event Planners for Stress-Free Experiences
+                    </p>
+<div class="button-container">
+<a class="btn-teo-caption-48" href="#">
+<span>Book a Consultation</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-buttons">
+<span class="prev">❮</span>
+<span class="next">❯</span>
+</div>
+<ul class="carousel-indicators">
+<li class="active" data-slide-to="0"></li>
+<li data-slide-to="1"></li>
+<li data-slide-to="2"></li>
+</ul>
+</div>
+</section>
+<script>
+    $(document).ready(function () {
+
+        var $header = $('#page-header');
+
+        function handleHeaderScroll() {
+
+            if ($(window).scrollTop() > 50) {
+                $header.addClass('sticky-active');
+            } else {
+                $header.removeClass('sticky-active');
+            }
+
+        }
+
+        function setActiveMenu() {
+
+            var currentPage = window.location.pathname.split('/').pop();
+
+            if (!currentPage || currentPage === '/') {
+                currentPage = 'index.html';
+            }
+
+            $('.header-51 .main_page').removeClass('active');
+
+            $('.header-51 .main_page').each(function () {
+
+                var href = $(this).find('a').attr('href');
+
+                if (!href) {
+                    return;
+                }
+
+                var linkPage = href.split('/').pop();
+
+                if (linkPage === currentPage) {
+                    $(this).addClass('active');
+                }
+
+            });
+
+        }
+
+        handleHeaderScroll();
+        setActiveMenu();
+
+        $(window).on('scroll', function () {
+            handleHeaderScroll();
+        });
+
+        $('#dynamic-header a').on('click', function () {
+
+            if ($(window).width() <= 767) {
+                $('#dynamic-header').collapse('hide');
+            }
+
+        });
+
+    });
+</script>
+<script>
+    $(document).ready(function () {
+
+        var currentIndex2 = 0;
+
+        var items2 = document.querySelectorAll(
+            '.carousel-51 .carousel-item'
+        );
+
+        var indicators2 = document.querySelectorAll(
+            '.carousel-51 .carousel-indicators li'
+        );
+
+        var prevButton2 = document.querySelector(
+            '.carousel-51 .prev'
+        );
+
+        var nextButton2 = document.querySelector(
+            '.carousel-51 .next'
+        );
+
+        var carouselInner2 = document.querySelector(
+            '.carousel-51 .carousel-inner'
+        );
+
+        if (!items2.length) {
+            return;
+        }
+
+        function showItem2(index) {
+
+            items2.forEach(function (item) {
+                item.classList.remove('active');
+            });
+
+            indicators2.forEach(function (indicator) {
+                indicator.classList.remove('active');
+            });
+
+            items2[index].classList.add('active');
+
+            if (indicators2[index]) {
+                indicators2[index].classList.add('active');
+            }
+
+            carouselInner2.style.transition =
+                'transform 1s ease-in-out';
+
+            carouselInner2.style.transform =
+                'translateX(-' + (index * 100) + '%)';
+        }
+
+        if (nextButton2) {
+
+            nextButton2.addEventListener('click', function () {
+
+                currentIndex2 =
+                    (currentIndex2 + 1) % items2.length;
+
+                showItem2(currentIndex2);
+
+            });
+
+        }
+
+        if (prevButton2) {
+
+            prevButton2.addEventListener('click', function () {
+
+                currentIndex2 =
+                    (currentIndex2 - 1 + items2.length) %
+                    items2.length;
+
+                showItem2(currentIndex2);
+
+            });
+
+        }
+
+        indicators2.forEach(function (indicator2, index) {
+
+            indicator2.addEventListener('click', function () {
+
+                currentIndex2 = index;
+
+                showItem2(currentIndex2);
+
+            });
+
+        });
+
+        setInterval(function () {
+
+            currentIndex2 =
+                (currentIndex2 + 1) % items2.length;
+
+            showItem2(currentIndex2);
+
+        }, 5000);
+
+        showItem2(currentIndex2);
+
+    });
+</script>
+<section class="header-breadcrumb-section" style="background:url('assets/images/header-51-breadcrumb-section-bg.jpg') center center / cover no-repeat;?v=1794306007">
+<div class="container text-center">
+<h1 class="header-breadcrumb-section-title">
+<span class="Page_name">Page Name</span>
+</h1>
+<p class="header-breadcrumb-section-breadcrumb">
+<a href="index.html">Home</a>
+<span>&gt;</span>
+<span class="Page_name">Page Name</span>
+</p>
+</div>
+</section>
